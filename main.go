@@ -8,17 +8,13 @@ import (
 )
 
 func calc(input string) int {
-	// Setup the input
-	is := antlr.NewInputStream(input)
+	inputStream := antlr.NewInputStream(input)
 
-	// Create the Lexer
-	lexer := parser.NewCalculatorLexer(is)
+	lexer := parser.NewCalculatorLexer(inputStream)
 	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 
-	// Create the Parser
 	p := parser.NewCalculatorParser(stream)
 
-	// Finally parse the expression (by walking the tree)
 	var listener my_listener.CalcListener
 	antlr.ParseTreeWalkerDefault.Walk(&listener, p.Start())
 

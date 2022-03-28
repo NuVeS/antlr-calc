@@ -82,7 +82,7 @@ func (l *CalcListener) ExitFACTORIAL(ctx *parser.FACTORIALContext) {
 	l.push(res)
 }
 
-//
+// Лишний код из лексера. Щас для калькулятора не нужен
 
 // VisitTerminal is called when a terminal node is visited.
 func (l *CalcListener) VisitTerminal(node antlr.TerminalNode) {}
